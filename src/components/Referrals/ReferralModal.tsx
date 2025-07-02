@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { X, ArrowRightLeft, User, MapPin, AlertTriangle, Car, Users } from 'lucide-react';
+import { X, ArrowRightLeft, User, MapPin, AlertTriangle, Car } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useHealth } from '../../contexts/HealthContext';
 import { ReferralData } from '../../types/earthstar';
@@ -85,15 +85,15 @@ export function ReferralModal({ isOpen, onClose }: ReferralModalProps) {
     <AnimatePresence>
       {isOpen && (
         <div className="fixed inset-0 z-50 overflow-y-auto">
-          <div className="flex items-center justify-center min-h-screen px-4 pt-4 pb-20 text-center sm:block sm:p-0">
-            {/* Backdrop */}
-            <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              exit={{ opacity: 0 }}
-              className="fixed inset-0 bg-gray-500 bg-opacity-75 transition-opacity"
-              onClick={onClose}
-            />
+          {/* Backdrop */}
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            className="fixed inset-0 bg-gray-500 bg-opacity-75 transition-opacity z-0"
+            onClick={onClose}
+          />
+          <div className="flex items-center justify-center min-h-screen px-4 pt-4 pb-20 text-center sm:block sm:p-0 relative z-10">
 
             {/* Modal */}
             <motion.div
@@ -192,7 +192,7 @@ export function ReferralModal({ isOpen, onClose }: ReferralModalProps) {
                           <button
                             key={urgency.value}
                             type="button"
-                            onClick={() => setFormData(prev => ({ ...prev, urgency: urgency.value as any }))}
+                            onClick={() => setFormData(prev => ({ ...prev, urgency: urgency.value as 'low' | 'medium' | 'high' | 'emergency' }))}
                             className={`p-3 rounded-lg text-left transition-colors border ${
                               formData.urgency === urgency.value 
                                 ? getUrgencyColor(urgency.value)

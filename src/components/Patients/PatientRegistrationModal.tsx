@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { X, User, MapPin, Users, Shield } from 'lucide-react';
+import { X, User, MapPin, Shield } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useHealth } from '../../contexts/HealthContext';
 import { PatientData } from '../../types/earthstar';
@@ -23,14 +23,15 @@ export function PatientRegistrationModal({ isOpen, onClose }: PatientRegistratio
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    
+
     try {
-      const patientData: Omit<PatientData, 'id' | 'healthId' | 'registrationDate' | 'primaryASHA'> = {
+      const patientData: Omit<PatientData, 'id' | 'healthId' | 'registrationDate'> = {
         name: formData.name,
         age: parseInt(formData.age),
         gender: formData.gender,
         village: formData.village,
         familySize: parseInt(formData.familySize),
+        primaryASHA: '', // Will be set by the context
         consent: {
           allowsDataSharing: formData.allowsDataSharing,
           sharingLevel: formData.sharingLevel,
@@ -41,7 +42,7 @@ export function PatientRegistrationModal({ isOpen, onClose }: PatientRegistratio
 
       await registerPatient(patientData);
       onClose();
-      
+
       // Reset form
       setFormData({
         name: '',
@@ -65,16 +66,15 @@ export function PatientRegistrationModal({ isOpen, onClose }: PatientRegistratio
     <AnimatePresence>
       {isOpen && (
         <div className="fixed inset-0 z-50 overflow-y-auto">
-          <div className="flex items-center justify-center min-h-screen px-4 pt-4 pb-20 text-center sm:block sm:p-0">
-            {/* Backdrop */}
-            <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              exit={{ opacity: 0 }}
-              className="fixed inset-0 bg-gray-500 bg-opacity-75 transition-opacity"
-              onClick={onClose}
-            />
-
+          {/* Backdrop */}
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            className="fixed inset-0 bg-gray-500 bg-opacity-75 transition-opacity z-0"
+            onClick={onClose}
+          />
+          <div className="flex items-center justify-center min-h-screen px-4 pt-4 pb-20 text-center sm:block sm:p-0 relative z-10">
             {/* Modal */}
             <motion.div
               initial={{ opacity: 0, scale: 0.95, y: 20 }}
@@ -109,7 +109,7 @@ export function PatientRegistrationModal({ isOpen, onClose }: PatientRegistratio
                     <User className="h-4 w-4" />
                     <span>Basic Information</span>
                   </h4>
-                  
+
                   <div>
                     <label className="block text-sm font-medium text-gray-700 mb-1">
                       Full Name *
