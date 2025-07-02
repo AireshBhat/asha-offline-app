@@ -13,10 +13,11 @@ A **decentralized, offline-first healthcare information system** designed for AS
 - **Regenerative Information Ecosystem**: Data that strengthens rather than extracts from communities
 - **Community Ownership**: Data sovereignty remains with villages and individuals
 - **Offline-First**: Works without internet connectivity, syncs when possible
+- **Self-Hosted**: [Always self-hosted, servers optional](https://earthstar-project.org/) - no dependency on external services
 
 ### Technology Stack
 - **Frontend**: React 18 + TypeScript + Tailwind CSS
-- **Backend**: Earthstar (peer-to-peer data protocol)
+- **Backend**: [Earthstar](https://earthstar-project.org/) (peer-to-peer data protocol)
 - **Storage**: Local SQLite + distributed document sync
 - **Encryption**: CryptoJS for data protection
 - **UI**: Lucide React icons + Framer Motion animations
@@ -41,6 +42,7 @@ A **decentralized, offline-first healthcare information system** designed for AS
 - **Hub Sync**: Weekly visits to Primary Health Centers
 - **Opportunistic Sync**: When mobile connectivity is available
 - **Emergency Priority**: Critical referrals get immediate routing
+- **Sneakernet Support**: [Physical data transfer](https://earthstar-project.org/) when no connectivity available
 
 ## 📊 Data Structure
 
@@ -154,6 +156,8 @@ Private Shares:
 /analytics/~@district.b.../monthly_stats
 ```
 
+*Based on [Earthstar es.5 Data Format](https://earthstar-project.org/specifications/es-5-data-format)*
+
 ## 🔄 Data Flow
 
 ### Offline-First Operation
@@ -164,7 +168,7 @@ Private Shares:
 5. **Emergency Routing**: Critical data gets priority
 
 ### Conflict Resolution
-- **Timestamp-based**: Standard Earthstar resolution
+- **Timestamp-based**: Standard [Earthstar resolution](https://earthstar-project.org/how-does-it-work)
 - **Medical Priority**: Emergency documents take precedence
 - **Community Validation**: Critical referrals require consensus
 - **Role-based**: Primary ASHA decisions prioritized
@@ -199,7 +203,7 @@ Private Shares:
 ```typescript
 // src/lib/earthstar-config.ts
 export const EARTHSTAR_CONFIG = {
-  FORMAT_VERSION: "es.5",
+  FORMAT_VERSION: "es.5", // [Earthstar v11 specification](https://earthstar-project.org/)
   SYNC_INTERVAL: 30000, // 30 seconds
   MAX_DOCUMENT_SIZE: 1024 * 1024, // 1MB
   RETENTION_PERIOD: 365 * 24 * 60 * 60 * 1000 // 1 year
@@ -333,6 +337,9 @@ Village Health Committee
 - **API Documentation**: Component interfaces and data flows
 - **Deployment Guide**: Production setup instructions
 - **User Manual**: ASHA worker training materials
+- **[Earthstar Documentation](https://earthstar-project.org/)**: Core protocol and API guides
+- **[Earthstar JavaScript API](https://earthstar-project.org/javascript-module)**: Library reference
+- **[Earthstar Tutorials](https://earthstar-project.org/tutorials)**: Getting started guides
 
 ## 📄 License
 
@@ -341,9 +348,10 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 ## 🙏 Acknowledgments
 
 - **ASHA Workers**: For their invaluable feedback and testing
-- **Earthstar Community**: For the peer-to-peer protocol
+- **[Earthstar Community](https://earthstar-project.org/community)**: For the peer-to-peer protocol and [open source contributions](https://earthstar-project.org/community/contribute-code)
 - **Healthcare Professionals**: For medical domain expertise
 - **Rural Communities**: For trusting us with their health data
+- **[NGI Assure Fund](https://earthstar-project.org/)**: For funding the Earthstar project through the European Commission's Next Generation Internet programme
 
 ---
 
