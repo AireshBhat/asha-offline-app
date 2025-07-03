@@ -156,7 +156,7 @@ Private Shares:
 /analytics/~@district.b.../monthly_stats
 ```
 
-*Based on [Earthstar es.5 Data Format](https://earthstar-project.org/specifications/es-5-data-format)*
+*Based on [Earthstar es.5 Data Format](https://earthstar-project.org/specs/data-spec-es5)*
 
 ## 🔄 Data Flow
 
@@ -168,7 +168,7 @@ Private Shares:
 5. **Emergency Routing**: Critical data gets priority
 
 ### Conflict Resolution
-- **Timestamp-based**: Standard [Earthstar resolution](https://earthstar-project.org/how-does-it-work)
+- **Timestamp-based**: Standard [Earthstar resolution](https://willowprotocol.org/specs/data-model/index.html#data_model_concepts)
 - **Medical Priority**: Emergency documents take precedence
 - **Community Validation**: Critical referrals require consensus
 - **Role-based**: Primary ASHA decisions prioritized
@@ -338,8 +338,8 @@ Village Health Committee
 - **Deployment Guide**: Production setup instructions
 - **User Manual**: ASHA worker training materials
 - **[Earthstar Documentation](https://earthstar-project.org/)**: Core protocol and API guides
-- **[Earthstar JavaScript API](https://earthstar-project.org/javascript-module)**: Library reference
-- **[Earthstar Tutorials](https://earthstar-project.org/tutorials)**: Getting started guides
+- **[Earthstar JavaScript API](https://deno.land/x/earthstar@v10.2.2/src/entries/universal.ts)**: Library reference
+- **[Earthstar Tutorials](https://earthstar-project.org/tutorials/create-a-chat-app)**: Getting started guides
 
 ## 📄 License
 
@@ -348,10 +348,8 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 ## 🙏 Acknowledgments
 
 - **ASHA Workers**: For their invaluable feedback and testing
-- **[Earthstar Community](https://earthstar-project.org/community)**: For the peer-to-peer protocol and [open source contributions](https://earthstar-project.org/community/contribute-code)
+- **[Earthstar Community](https://opencollective.com/earthstar)**: For the peer-to-peer protocol and [open source contributions](https://opencollective.com/search?tag=open%20source)
 - **Healthcare Professionals**: For medical domain expertise
-- **Rural Communities**: For trusting us with their health data
-- **[NGI Assure Fund](https://earthstar-project.org/)**: For funding the Earthstar project through the European Commission's Next Generation Internet programme
 
 ---
 
